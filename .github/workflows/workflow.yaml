@@ -1,0 +1,22 @@
+name: Deploy CI
+
+on: 
+  push:
+    brances: 
+      ['main']
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3 
+
+      - name: Check index.html
+        run: |
+          if [ ! -f ./public/index.html ]; then
+            echo "Arquivo inexistente, cancelando deploy!"
+            exit 1
+          fi
+    
