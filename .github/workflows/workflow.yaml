@@ -3,17 +3,19 @@ name: Deploy CI
 on: 
   push:
     branches: 
-      ['main']
+      - main
 
 jobs:
   build-check-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3 
+        uses: actions/checkout@v4
 
-      - name: Check index.html
+      - name: Check index
         run: |
           if [ ! -f ./public/index.html ]; then
             echo "Arquivo inexistente, cancelando deploy!"
