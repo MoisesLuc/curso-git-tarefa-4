@@ -16,7 +16,9 @@ jobs:
 
       - name: Check index
         run: |
+          cd public
           ls
+          cd ..
           if [ ! -f ./public/index.html ]; then
             echo "Arquivo inexistente, cancelando deploy!"
             exit 1
