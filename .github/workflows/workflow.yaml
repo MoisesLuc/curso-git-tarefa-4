@@ -2,12 +2,11 @@ name: Deploy CI
 
 on: 
   push:
-    branches: 
-      - main
+    branches: ["main"]
 
 jobs:
   build-check-deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     permissions:
       contents: write
 
